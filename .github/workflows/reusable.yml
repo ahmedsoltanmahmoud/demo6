@@ -1,9 +1,23 @@
 name: reusable
-on: workflow_call
+on: 
+  workflow_call:
+    inputs:
+      artifact-name:
+        description: name of artifact
+        required: true
+        type: string
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Get Code
+        uses: actions/download-artifcat@v3 
+        with: 
+          name: ${{ inputs.artifact-name }}
+      - name: ls commanda
+        run: ls
       - name: output info
         run: echo "deploy updates"
+
     
