@@ -1,0 +1,10 @@
+name: reuse
+on: workflow_call
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: output info
+        uses: echo "deploy updates"
+    
